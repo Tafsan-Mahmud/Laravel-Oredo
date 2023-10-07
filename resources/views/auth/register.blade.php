@@ -84,6 +84,10 @@
                                                     id="exampleInputPassword1" autocomplete="current-password"
                                                     placeholder="Confirm Password">
                                             </div>
+                                            {!! NoCaptcha::display() !!}
+                                            @error('g-recaptcha-response')
+                                                <strong class="text-danger">{{$message}}</strong>
+                                            @enderror
                                             <div class="form-check form-check-flat form-check-primary">
                                                 <label class="form-check-label">
                                                     <input type="checkbox" class="form-check-input">
@@ -125,6 +129,7 @@
     <!-- endinject -->
     <!-- custom js for this page -->
     <!-- end custom js for this page -->
+    {!! NoCaptcha::renderJs() !!}
 </body>
 
 </html>
