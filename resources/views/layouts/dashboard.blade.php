@@ -19,6 +19,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('dashboard_assets/css/demo_1/style.css') }}">
     <!-- End layout styles -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('dashboard_assets/images/favicon.png') }}" />
 </head>
 
@@ -106,6 +107,24 @@
                             <ul class="nav sub-menu">
                                 <li class="nav-item">
                                     <a href="{{ route('role.management') }}" class="nav-link"> Role</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#post" role="button" aria-expanded="false"
+                            aria-controls="post">
+                            <i class="link-icon" data-feather="mail"></i>
+                            <span class="link-title">Post Management</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse" id="post">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                    <a href="{{ route('add.new.post') }}" class="nav-link">add new post</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('role.management') }}" class="nav-link">my post</a>
                                 </li>
                             </ul>
                         </div>
@@ -453,6 +472,7 @@
     <script src="{{ asset('dashboard_assets/js/file-upload.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     @yield('footer_JS')
     <!-- endinject -->
     <!-- custom js for this page -->

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Categorycontroller;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Tagcontroller;
 use App\Http\Controllers\UserController;
@@ -60,3 +61,8 @@ Route::post('/asign/role', [RoleController::class,'asign_role'])->name('asign.ro
 Route::get('/remove/role/user/{user_id}', [RoleController::class, 'remove_role_user'])->name('remove.role.user');
 Route::get('/edit/user/permission/{user_id}', [RoleController::class, 'edit_user_permission'])->name('edit.user.permission');
 Route::post('/update/user/permission', [RoleController::class, 'update_user_permission'])->name('update.user.permission');
+
+
+// Post Management
+Route::get('/add/new/post', [PostController::class, 'add_new_post'])->name('add.new.post');
+Route::post('/post/store',[PostController::class, 'store_post'])->name('post.store');
