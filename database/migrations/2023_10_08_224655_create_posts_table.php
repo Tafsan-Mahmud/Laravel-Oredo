@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('author_id');
             $table->integer('category_id');
-            $table->integer('tags_id');
+            $table->string('tags_id');
             $table->string('tittle');
             $table->longText('desp');
             $table->string('post_image');

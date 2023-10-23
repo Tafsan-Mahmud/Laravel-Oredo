@@ -17,26 +17,35 @@
                         <h4>Add New Post</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="category">Category</label>
                                 <select name="category_id" id="category" class="form-control">
                                     <option value="">-- select category --</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{$category->id}}">{{ $category->cat_name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->cat_name }}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="tittle">Post Tittle</label>
-                                <input type="text" id="tittle" name="tittle" placeholder="post tittle"
+                                <input type="text" id="tittle" name="tittle" value="{{ old('tittle') }}" placeholder="post tittle"
                                     class="form-control">
+                                @error('tittle')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="">Description</label>
-                                <textarea id="summernote" name="post_desp" placeholder="post tittle" class="form-control" cols="30" rows="10">
+                                <textarea id="summernote" name="desp" value="{{ old('desp') }}" placeholder="post tittle" class="form-control" cols="30" rows="10">
                                 </textarea>
+                                @error('desp')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <h5>Select tags</h5>
@@ -45,11 +54,14 @@
                                         <div class="form-check form-check-inline">
                                             <label class="form-check-label">
                                                 <input value="{{ $tag->id }}" type="checkbox" class="form-check-input"
-                                                    name="tags[]"> <i class="input-frame"></i>{{ $tag->tag_name }}
+                                                    name="tags_id[]"> <i class="input-frame"></i>{{ $tag->tag_name }}
                                             </label>
                                         </div>
                                     @endforeach
                                 </div>
+                                @error('tags_id')
+                                    <strong class="text-danger">{{ $message }}</strong>
+                                @enderror
                             </div>
                             <div class="form-group mb-3">
                                 <label>File upload</label>
@@ -62,6 +74,9 @@
                                         placeholder="Upload Image">
                                 </div>
                             </div>
+                            @error('post_image')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                             <div class="d-flex justify-content-center">
                                 <button class="btn btn-primary" type="submit">Submit Post</button>
                             </div>

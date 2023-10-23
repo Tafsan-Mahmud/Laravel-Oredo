@@ -28,7 +28,7 @@
                                     <th>image</th>
                                     <th>Action</th>
                                 </tr>
-                                @can('show_user_list')
+                                {{-- @can('show_user_list') --}}
                                     @foreach ($userData as $sl => $data)
                                         <tr>
                                             <td><input type="checkbox" name="check[]" value="{{ $data->id }}"></td>
@@ -48,11 +48,11 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @else
+                                {{-- @else
                                     <div class="text-center text-danger">
                                         <h2>This page is Restricted!!. only the Super Admin Can Access this page!</h2>
-                                    </div>
-                                @endcan
+                                    </div> --}}
+                                {{-- @endcan --}}
                             </table>
                         </div>
                     </form>
